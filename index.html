@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Conversor de Moedas</title>
+</head>
+<body>
+    <section>
+        <div class="main-container">
+            <h1>Conversor de Moedas</h1>
+
+            <div class="moeda1">
+                <label for="currentCoin">Moeda: </label>
+                <input name="currentCoin" type="number" id="input1">
+
+                <select name="coinOptions" id="select1">
+                    <option value="EUR">EUR - Euro</option>
+                    <option value="USD">USD - Dólar Americano </option>
+                    <option value="BRL">BRL - Real</option>
+                    <!--
+                    <option value="CAD">CAD - Dólar Canadense</option>
+                    <option value="AUD">AUD - Dólar Australiano</option>
+                    <option value="JPY">JPY - Yene Japão</option>
+                    <option value="GBP">GBP - Libra</option>
+                    <option value="CNY">CNY - Yuan China</option>
+                    -->
+                </select>
+            </div>
+
+            
+            <div class="moeda2">
+                <label for="convertedCoin">Selecione a conversão: </label>
+                
+                <select name="convertOption" id="select2">
+                    <option value="EUR">EUR - Euro</option>
+                    <option value="USD">USD - Dólar Americano </option>
+                    <option value="BRL">BRL - Real</option>
+                    <!--
+                    <option value="CAD">CAD - Dólar Canadense</option>
+                    <option value="AUD">AUD - Dólar Australiano</option>
+                    <option value="JPY">JPY - Yene Japão</option>
+                    <option value="GBP">GBP - Libra</option>
+                    <option value="CNY">CNY - Yuan China</option>
+                    -->
+                </select>
+            </div>
+
+            <button class="button">Converter</button>
+            
+            <span id="resultado">
+    
+            </span>
+        </div>
+
+    </section>
+
+    <script src="/js/conversor.js"></script>
+</body>
+</html>
