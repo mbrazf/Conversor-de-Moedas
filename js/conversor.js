@@ -2,8 +2,8 @@
 
 let button = document.querySelector(".button")
 
-let select1 = document.getElementById("select1")
-let select2 = document.getElementById("select2")
+
+let select = document.getElementById("select")
 
 let ul = document.getElementById("moedas")
 
@@ -24,61 +24,56 @@ fetch(url)
     
     let euro = coins.EURBRL
     let dolar = coins.USDBRL
+    
    
-    //let dolarCAN = coins.CADBRL
-    //let dolarAUS = coins.AUDBRL 
-    //let yen = coins.JPYBRL
-   // let libra = coins.GBPBRL
-    //let yuan = coins.CNYBRL
+    
+    let dolarCAN = coins.CADBRL
+    let dolarAUS = coins.AUDBRL 
+    let yen = coins.JPYBRL
+    let libra = coins.GBPBRL
+    let yuan = coins.CNYBRL
 
 
     //  Adiciona a ação no botão
-button.addEventListener("click",() => {
+button.addEventListener("click", () => {
     let input1 = document.getElementById("input1").value
     let  resultado = document.getElementById("resultado")
     let convert
+    let message
     
+    
+    
+        if(select.value == "EUR") {
+            convert = euro.bid / input1
+            console.log(convert)
+            resultado.innerHTML = `R$${input1} Reais é igual a ${convert} euros`
+        } 
 
-    if(select1.value == "BRL" && select2.value == "EUR" || select1.value == "EUR" && select2.value == "BRL") {
-        convert = input1 * euro.bid 
-        console.log(convert)
-        resultado.innerHTML = convert
-    } 
-
-    if(select1.value == "BRL" && select2.value == "USD" || select1.value == "USD" && select2.value == "BRL") {
-        convert = input1 * dolar.bid 
-        console.log(convert)
-    } 
-
-    if(select1.value == "USD" && select2.value == "EUR" || select1.value == "EUR" && select2.value == "USD") {
-        convert = euro.bid * dolar.bid 
-        console.log(convert)
-    } 
-   
+        if(select.value == "USD") {
+            convert = input1 * dolar.bid 
+            console.log(convert)
+            resultado.innerHTML = convert
+        } 
+        
+        if(select.value == "EUR" ) {
+            convert = dolar.bid * euro.bid 
+            console.log(convert)
+            
+        } 
+       
+    
 })
 
 //  Pega o valor digitado no primeiro input
 input1.addEventListener("input", () => {
-    input1.value
+     input1.value
+     console.log(input1.value)
 })
 
-
-//  Pega o valor selecionado no select
-select1.addEventListener("change", () => {
-    select1.value
-    if(select1.value =="BRL") {
-        select2.value = "USD"
-    } else 
-    select2.value = "BRL"
-})
 
 //  Pega o segundo valor selecionado no select
-select2.addEventListener("change", () => {
-    select2.value
-    if(select2.value =="USD") {
-        select1.value = "BRL"
-    } else 
-    select2.value = "USD"
+select.addEventListener("change", () => {
+    select.value
 })
     
  //  Aqui se houver algum erro iremos capturá-lo e exibir uma mensagem de erro

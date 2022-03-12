@@ -42,7 +42,7 @@ label {
 
 .moeda1, .moeda2{
     width: 40%;
-    height: 150px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
