@@ -57,10 +57,23 @@ label {
 
 #resultado{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    height: 40px;
+    height: 50px;
+    width: 300px;
     background-color: white;
     color: black;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 10px 10px;
     margin-top: 20px;
 }
+
+
+.image:hover {
+    color: white;
+    animation: mymove 5s infinite
+  }
+  
+  @keyframes mymove {
+    50% {transform: rotate(180deg);}
+  }

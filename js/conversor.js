@@ -24,46 +24,62 @@ fetch(url)
     
     let euro = coins.EURBRL
     let dolar = coins.USDBRL
-    
-   
-    
     let dolarCAN = coins.CADBRL
     let dolarAUS = coins.AUDBRL 
     let yen = coins.JPYBRL
     let libra = coins.GBPBRL
     let yuan = coins.CNYBRL
+    let real = 0
 
+   
 
     //  Adiciona a ação no botão
 button.addEventListener("click", () => {
     let input1 = document.getElementById("input1").value
+    input1.toLocaleString("pt-BR", {style:"currency", currency:"BRL"})
+    real = input1
     let  resultado = document.getElementById("resultado")
     let convert
-    let message
-    
-    
-    
-        if(select.value == "EUR") {
-            convert = euro.bid / input1
-            console.log(convert)
-            resultado.innerHTML = `R$${input1} Reais é igual a ${convert} euros`
-        } 
 
-        if(select.value == "USD") {
-            convert = input1 * dolar.bid 
-            console.log(convert)
-            resultado.innerHTML = convert
-        } 
-        
-        if(select.value == "EUR" ) {
-            convert = dolar.bid * euro.bid 
-            console.log(convert)
-            
-        } 
-       
     
+
+        switch(select.value){
+            case  "EUR":
+                    convert = input1 / euro.bid
+                    resultado.innerHTML = `R$${input1} Reais é igual a ${convert.toLocaleString("pt-BR", {style:"currency", currency:"BRL"})} Euros`
+                break;
+
+            case "USD":
+                    convert = input1 / dolar.bid
+                    resultado.innerHTML = `R$${input1} Reais é igual a ${convert.toLocaleString("pt-BR", {style:"currency", currency:"USD"})} Dólares Americanos`
+                break;
+
+            case "CAD":
+                convert = input1 / dolarCAN.bid
+                resultado.innerHTML = `R$${input1} Reais é igual a ${convert.toLocaleString("pt-BR", {style:"currency", currency:"CAD"})} Dólares Canadense`
+            break;
+
+            case "AUD":
+                convert = input1 / dolarAUS.bid
+                resultado.innerHTML = `R$${input1} Reais é igual a ${convert.toLocaleString("pt-BR", {style:"currency", currency:"AUD"})} Dólares Australianos`
+            break;
+
+            case "JPY":
+                convert = input1 / yen.bid
+                resultado.innerHTML = `R$${input1} Reais é igual a ${convert.toLocaleString("pt-BR", {style:"currency", currency:"JPY"})} Yenes Japoneses`
+            break;
+
+            case "GBP":
+                convert = input1 / libra.bid
+                resultado.innerHTML = `R$${input1} Reais é igual a ${convert.toLocaleString("pt-BR", {style:"currency", currency:"GBP"})} Libras Esterlinas`
+            break;
+
+            case "CNY":
+                convert = input1 / yuan.bid
+                resultado.innerHTML = `R$${input1} Reais é igual a ${convert.toLocaleString("pt-BR", {style:"currency", currency:"CNY"})} Yuan Chinês`
+            break;
+        }
 })
-
 //  Pega o valor digitado no primeiro input
 input1.addEventListener("input", () => {
      input1.value
@@ -75,6 +91,7 @@ input1.addEventListener("input", () => {
 select.addEventListener("change", () => {
     select.value
 })
+
     
  //  Aqui se houver algum erro iremos capturá-lo e exibir uma mensagem de erro
 }).catch(function(error) {
