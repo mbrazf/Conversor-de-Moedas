@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,47 +9,39 @@
     <script src="https://kit.fontawesome.com/23cda6e370.js" crossorigin="anonymous"></script>
     <title>Conversor de Moedas</title>
 </head>
+
 <body>
     <section>
         <div class="main-container">
             <h1>Conversor de Moedas</h1>
 
             <div class="moeda1">
-                <label for="currentCoin">Moeda: </label>
-                <input name="currentCoin" type="number" id="valorReal">
+                <label for="currentCoin">Valor em Reais: </label>
+                <input name="currentCoin" type="number" id="valorReal" placeholder="Digite aqui o valor">
             </div>
 
-            <img class="image" src="https://img.icons8.com/ios-filled/50/000000/change.png"/>
+            <img class="image" src="https://img.icons8.com/ios-filled/50/000000/change.png" />
 
-            
             <div class="moeda2">
                 <label for="convertedCoin">Selecione para qual moeda deseja converter: </label>
-                
                 <select name="convertOption" id="select">
-                    <option selected>Selecione uma moeda: </option>
-                    <option>-------------------------------</option> 
-                    <option value="EUR">EUR  - Euro</option>
+                    <option value=" " selected>Selecione a conversão: </option>
+                    <option>----------------------------</option>
+                    <option value="EUR">EUR - Euro</option>
                     <option value="USD">USD - Dólar Americano </option>
-                    <option value="CAD">CAD   - Dólar Canadense</option>
-                    <option value="AUD">AUD  - Dólar Australiano</option>
-                    <option value="JPY">JPY     - Yene Japão</option>
-                    <option value="GBP">GBP    - Libra Esterlina</option>
-                    <option value="CNY">CNY   - Yuan China</option>
-                    
+                    <option value="CAD">CAD - Dólar Canadense</option>
+                    <option value="AUD">AUD - Dólar Australiano</option>
+                    <option value="JPY">JPY - Yene Japão</option>
+                    <option value="GBP">GBP - Libra Esterlina</option>
+                    <option value="CNY">CNY - Yuan China</option>
                 </select>
+
             </div>
-
             <button class="button">Converter</button>
-            
-            <span id="resultado">
-    
-            </span>
+            <span id="resultado"></span>
         </div>
-
+        <div id="body"></div>
     </section>
-
     <script src="/js/conversor.js"></script>
-
-    
 </body>
 </html>
